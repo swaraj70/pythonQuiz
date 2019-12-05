@@ -8,34 +8,34 @@
 {% block content %}
     <div class="container">
         </br>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Basic</h5>
-                    <p class="card-text">Variables | Data Types</p>
-                    <a href="#" class="btn btn-primary">Take Quiz</a>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Basic</h5>
+                        <p class="card-text">Variables | Data Types</p>
+                        <a href="{% url 'quiz' 1 %}" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                    </div>
                 </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">intermediate</h5>
+                        <p class="card-text">Condition Statements | Loops</p>
+                        <a href="{% url 'quiz' 2 %}" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Advance</h5>
+                        <p class="card-text">Object-Oriented Programming</p>
+                        <a href="{% url 'quiz' 3 %}" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">intermediate</h5>
-                    <p class="card-text">Condition Statements | Loops</p>
-                    <a href="#" class="btn btn-primary">Take Quiz</a>
-                </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Advance</h5>
-                    <p class="card-text">Object-Oriented Programming</p>
-                    <a href="#" class="btn btn-primary">Take Quiz</a>
-                </div>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock content %}
