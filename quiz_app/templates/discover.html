@@ -15,7 +15,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ obj.q_name }}</h5>
                                 <p class="card-text">{{ obj.desc }}</p>
-                                <a href="{% url 'quiz' obj.id %}" class="btn btn-primary">Take Quiz</a>
+                                <a href="{% url 'quiz' obj.q_name %}" class="btn btn-primary">Take Quiz</a>
                             </div>
                     </div>
                 </div>
