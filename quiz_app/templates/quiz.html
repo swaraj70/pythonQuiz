@@ -5,5 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>{{quiz_obj}}</h1>
+    <div class="container">
+        <center>
+        <h1>{{quiz_obj.q_name}}</h1>
+        <h4>{{quiz_obj.desc}}</h4>
+        <a href="{% url 'basic_quest' quiz_obj.q_name 1 %}" class="btn btn-primary">Start Quiz</a>
+    </div>
 {% endblock content %}
