@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
+from urllib.parse import urlencode
+from django.contrib import messages
 from .models import Quiz, Question, Answer
-from .forms import QuestionForm
 
 # Create your views here.
 def home(request):
@@ -15,6 +16,16 @@ def quiz(request, qname):
     return render(request, 'quiz.html', {'quiz_obj' : quiz_obj})
 
 def basic_quest(request, quiz_name, ques_no):
-    question = Question.objects.get(id = ques_no)
-    answers = Answer.objects.filter(question = ques_no)
-    return render(request, 'quest.html', {'question' : question, 'answers' : answers})
+    if request.method == "POST":
+        guess = request.POST.get('answer')
+        ans = Answer.objects.get(text = guess)
+        if ans.is_correct == True:
+            messages.success(request,("Correct"))
+            return redirect('basic_quest', quiz_name, ques_no)
+        else:
+            messages.error(request,("Wrong"))
+            return redirect('basic_quest', quiz_name, ques_no)
+    else:
+        question = Question.objects.get(id = ques_no)
+        answers = Answer.objects.filter(question = ques_no)
+        return render(request, 'quest.html', {'question' : question, 'answers' : answers})
