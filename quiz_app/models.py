@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -12,9 +13,13 @@ class Quiz(models.Model):
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     label = models.CharField(max_length=1000)
+    slug = models.SlugField(null=False, unique=True)
     
     def __str__(self):
         return self.label
+
+    def get_absolute_url(self):
+        return reverse('basic_quest', kwargs={'slug': self.slug})
         
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
